@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Thank you for signing up!"
-      redirect_to root_url
+      redirect_to new_receivable_path
     else
       render "new"
     end

@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227223911) do
+ActiveRecord::Schema.define(version: 20140313215300) do
+
+  create_table "receivables", force: true do |t|
+    t.string   "debtor"
+    t.string   "email"
+    t.float    "total_debt"
+    t.float    "in_debt"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "receivables", ["user_id"], name: "index_receivables_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"

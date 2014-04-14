@@ -1,0 +1,27 @@
+
+<%= form_for @receivable do |r| %>
+   <p> 
+      <%= r.label :debtor %><br>
+      <%= r.text_field :debtor %>
+   </p>
+
+   <p>
+       <%= r.label :email %><br>
+       <%= r.text_field :email %>
+   </p>
+
+   <p>
+       <%= r.label :in_debt %><br>
+       <%= r.text_field :in_debt %>
+   </p>
+
+   <p>
+       <%= r.label :total_debt %><br>
+       <%= r.text_field :total_debt %>
+   </p>
+
+   <p>
+       <%= r.submit %>
+   </p>
+
+<% end %>

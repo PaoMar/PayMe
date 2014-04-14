@@ -1,0 +1,24 @@
+<h1>My Receivables</h1>
+<%= link_to 'New Receivable', new_receivable_path %><br>
+
+<table>
+  <tr>
+     <th>Debtor</th>
+     <th>Email</th>
+     <th>In_Debtor</th>
+     <th>Total_Debtor</th>
+     
+  </tr>
+  <% @receivables.each do |receivable| %>
+    <tr>
+       <td><%= receivable.debtor %></td>
+       <td><%= receivable.email %></td>
+       <td><%= receivable.in_debt %></td>
+       <td><%= receivable.total_debt %></td>
+       <td><%= link_to 'Show', receivable_path(receivable) %></td>
+       <td><%= link_to 'Edit', edit_receivable_path(receivable) %></td>
+       <td><%= link_to 'Delete', receivable_path(receivable), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>
+

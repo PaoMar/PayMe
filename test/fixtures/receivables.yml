@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  debtor: MyString
+  email: MyString
+  total_debt: 1.5
+  in_debt: 1.5
+  user_id: 
+
+two:
+  debtor: MyString
+  email: MyString
+  total_debt: 1.5
+  in_debt: 1.5
+  user_id: 
