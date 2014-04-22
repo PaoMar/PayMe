@@ -7,7 +7,12 @@ Payme::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   resources :users
   resources :sessions
-  resources :receivables
+  resources :receivables do
+    member do 
+      post :sending_email
+      get :email_form
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

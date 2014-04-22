@@ -1,0 +1,17 @@
+
+<%= form_for :email, url: sending_email_receivable_path(@receivable) do |e| %>
+   <p> 
+      <%= e.label :subject %><br>
+      <%= e.text_field :subject %>
+   </p>
+
+   <p>
+       <%= e.label :content %><br>
+       <%= e.text_area :content %>
+   </p>
+
+   <p>
+       <%= e.submit %>
+   </p>
+
+<% end %>
