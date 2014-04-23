@@ -43,13 +43,19 @@ class ReceivablesController < ApplicationController
   end
 
   def email_form
-    @receivable = current_user.receivables.find(params[:id])    
+    @receivable = current_user.receivables.find(params[:id]) 
   end
 
   def sending_email
+    @message = MessageU.new(email_params)
     @receivable = current_user.receivables.find(params[:id])
-    UserMailer.welcome_email(@receivable,email_params[:subject], email_params[:content]).deliver
-    redirect_to receivables_path
+
+    if @message.valid?
+      UserMailer.welcome_email(@receivable,email_params[:subject], email_params[:content]).deliver
+      redirect_to receivables_path
+    else
+      render 'email_form'
+    end 
   end
 
   private 
@@ -59,7 +65,7 @@ class ReceivablesController < ApplicationController
   end 
 
   def email_params
-    params.require(:email).permit(:subject, :content)
+    params.require(:message_u).permit(:subject, :content)
   end 
 
 
